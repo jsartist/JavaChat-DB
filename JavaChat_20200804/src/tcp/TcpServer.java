@@ -9,6 +9,7 @@ public class TcpServer {
 	private ServerSocket serversocket;
 	private Socket socket;
 	private ConnectUser connectuser;
+	private DBConectClass jdbc;
 	
 	public TcpServer() {
 		this.port = new Scanner(System.in).nextInt();
@@ -32,7 +33,8 @@ public class TcpServer {
 		try {
 			while(trueNumber == 5) {
 				socket = serversocket.accept();
-				new UserStart(socket, connectuser).start();
+				System.out.println("Á¢¼Ó");
+				new UserStart(socket, connectuser, jdbc).start();
 			}
 		}
 		catch(Exception e) {

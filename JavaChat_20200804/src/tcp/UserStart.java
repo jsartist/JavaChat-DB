@@ -9,10 +9,13 @@ public class UserStart extends Thread {
 	private ConnectUser connectuser;
 	private DataInputStream dis;
 	private DataOutputStream dos;
+	private DBConectClass jdbc;
 	
-	public UserStart(Socket socket, ConnectUser connectuser) {
+	public UserStart(Socket socket, ConnectUser connectuser, DBConectClass jdbc) {
 		this.socket = socket;
 		this.connectuser = connectuser;
+		this.jdbc = jdbc;
+		inputOutputStream();
 	}
 	
 	private void inputOutputStream() {
@@ -26,5 +29,6 @@ public class UserStart extends Thread {
 	}
 	
 	private void loginUser() {	
+		
 	}
 }
