@@ -27,6 +27,7 @@ public class TcpServer {
 		}
 		catch(Exception e) {
 			System.out.println("파일을 불러오지 못하였습니다.");
+			System.exit(1);
 		}
 	}
 
@@ -36,7 +37,8 @@ public class TcpServer {
 			System.out.println("Server Socket이 생성되었습니다.");
 		}
 		catch(Exception e) {
-			System.out.println("Server Socket이 생성되지 않았습니다.\n");
+			System.out.println("Socket 오류가 발생하여 Server Socket을 생성하지 못하였습니다.\n");
+			System.exit(1);
 		}
 	}
 
@@ -59,18 +61,14 @@ public class TcpServer {
 		catch(Exception e) {
 			System.out.println("accept를 실행하는데 문제가 발생하였습니다.");
 			trueNumber = 0;
+			System.exit(1);
 		}
 	}
 	
 	public void startServer() {
-		try {
 			setPort();
 			serverStart();
 			countConnectUser();
 			userAccept();
-		}
-		catch(Exception e) {
-			System.out.println("TCP서버를 동작시키지 못했습니다.");
-		}
 	}
 }
