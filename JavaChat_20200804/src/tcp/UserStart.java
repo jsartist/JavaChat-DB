@@ -46,24 +46,28 @@ public class UserStart extends Thread {
 		}
 
 	}
-	
-	private int duplicateCheck() {
-		select = new DBSelect(jdbc);
-		return 1;
-	}
 
 	private void SignUp() {
 		try {
-			int checkNumber = 40096;
-			while(checkNumber == 40096) {
+			int checkNumber = 5;
+			while(checkNumber == 5) {
 				String infomation = dis.readUTF();
+				if(infomation.split("/")[1].equals("duplicate")) {
+					duplicateCheck(infomation.split("/")[0]);
+				}
 				insert = new DBInsert(infomation, jdbc);
+				
 			}
 
 		}
 		catch(Exception e) {
 
 		}
+	}
+	
+	private void duplicateCheck(String infomation) {
+		select = new DBSelect(jdbc);
+		
 	}
 
 }

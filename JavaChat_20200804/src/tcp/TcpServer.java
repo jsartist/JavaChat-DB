@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.Connection;
 
 public class TcpServer {
 	private int port;
@@ -16,6 +17,8 @@ public class TcpServer {
 	public TcpServer() {
 		this.serversocket = null;
 		socket = new Socket();
+		jdbc = new DBConectClass();
+		Connection con = jdbc.getConnection();
 	}
 	
 	private void setPort() {

@@ -13,15 +13,13 @@ import java.util.Scanner;
 public class DBConectClass {
 	private File file;
 	private String driver;
-	private String ip;
-	private int port;
 	private String info[];
-	private String pw;
 	private String url;
 	private Connection con;
 	private PreparedStatement pst;
 	private ResultSet rs;
-	public Connection getCon() {
+	
+	public Connection getConnection() {
 		this.driver = "org.mariadb.jdbc.Driver";
 		this.info = new String[4];
 		try {
