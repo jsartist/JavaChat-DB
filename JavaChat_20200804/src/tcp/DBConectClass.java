@@ -19,6 +19,7 @@ public class DBConectClass {
 	private PreparedStatement pst;
 	private ResultSet rs;
 	
+	
 	public Connection getConnection() {
 		this.driver = "org.mariadb.jdbc.Driver";
 		this.info = new String[4];
